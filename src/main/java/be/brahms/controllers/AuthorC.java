@@ -22,4 +22,10 @@ public class AuthorC {
         Author newAuthor = authorServ.registreAuthor(form.toEntity());
         return ResponseEntity.ok(newAuthor);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Author> findAuthorById (@PathVariable Long id) {
+        Author findAuthor = authorServ.findAuthorById(id);
+        return ResponseEntity.ok(findAuthor);
+    }
 }

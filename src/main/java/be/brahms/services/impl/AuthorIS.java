@@ -1,5 +1,6 @@
 package be.brahms.services.impl;
 
+import be.brahms.exceptions.authorE.NotFoundAuthorEx;
 import be.brahms.models.entities.Author;
 import be.brahms.repositories.AuthorR;
 import be.brahms.services.AuthorS;
@@ -23,7 +24,7 @@ public class AuthorIS implements AuthorS {
 
     @Override
     public Author findAuthorById(Long id) {
-        return null;
+        return authorRepo.findById(id).orElseThrow(NotFoundAuthorEx::new);
     }
 
     @Override
