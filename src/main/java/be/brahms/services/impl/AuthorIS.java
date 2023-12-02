@@ -29,7 +29,10 @@ public class AuthorIS implements AuthorS {
 
     @Override
     public Author updateAuthor(Long id, Author author) {
-        return null;
+        Author updateAuthor = authorRepo.findById(id).orElseThrow(NotFoundAuthorEx::new);
+        updateAuthor.setName(author.getName());
+        updateAuthor.setFirstname(author.getFirstname());
+        return authorRepo.save(updateAuthor);
     }
 
     @Override
