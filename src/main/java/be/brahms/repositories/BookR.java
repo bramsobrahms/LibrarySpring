@@ -2,5 +2,5 @@ package be.brahms.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Author extends JpaRepository<Author, Long> {
+public interface BookR extends JpaRepository<BookR, Long> {
 }
