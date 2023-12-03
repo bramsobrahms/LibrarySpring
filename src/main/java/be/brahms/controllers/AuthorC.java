@@ -8,6 +8,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping(value = "/author")
@@ -36,4 +38,11 @@ public class AuthorC {
         Author updateAuthor = authorServ.updateAuthor(id, form.toEntity());
         return ResponseEntity.ok(AuthorDTO.fromEntity(updateAuthor));
     }
+
+    @GetMapping(value = "/search/{nameOrFirstname}")
+    public ResponseEntity<List<Author>> searchAuthor(@PathVariable String nameOrFirstname) {
+        List<Author> searchByAuthor = authorServ.searchAuthor(nameOrFirstname);
+        return ResponseEntity.ok(searchByAuthor);
+    }
+
 }

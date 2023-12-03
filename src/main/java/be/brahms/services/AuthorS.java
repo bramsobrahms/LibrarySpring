@@ -9,6 +9,6 @@ public interface AuthorS {
     Author registreAuthor(Author author);
     Author findAuthorById(Long id);
     Author updateAuthor(Long id, Author author);
-    List<Author> searchAuthor(Author author);
+    List<Author> searchAuthor(String searchByNameOrFirstname);
     void deleteAuthor(Long id);
 }

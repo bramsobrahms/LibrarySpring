@@ -36,8 +36,8 @@ public class AuthorIS implements AuthorS {
     }
 
     @Override
-    public List<Author> searchAuthor(Author author) {
-        return null;
+    public List<Author> searchAuthor(String searchByNameOrFirstname) {
+        return authorRepo.searchAuthorByNameAndFirstname(searchByNameOrFirstname);
     }
 
     @Override
