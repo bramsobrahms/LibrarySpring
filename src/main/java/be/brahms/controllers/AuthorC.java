@@ -33,6 +33,12 @@ public class AuthorC {
         return ResponseEntity.ok(findAuthor);
     }
 
+    @GetMapping(value = "")
+    public ResponseEntity<List<Author>> findAllAuthors(){
+        List<Author> listAuthors = authorServ.findAllAuthors();
+        return ResponseEntity.ok(listAuthors);
+    }
+
     @PutMapping(value = "/{id}/update")
     public ResponseEntity<AuthorDTO> updateAuthor(@PathVariable Long id, @RequestBody AuthorF form) {
         Author updateAuthor = authorServ.updateAuthor(id, form.toEntity());

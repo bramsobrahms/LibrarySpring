@@ -28,6 +28,11 @@ public class AuthorIS implements AuthorS {
     }
 
     @Override
+    public List<Author> findAllAuthors() {
+        return authorRepo.findAll();
+    }
+
+    @Override
     public Author updateAuthor(Long id, Author author) {
         Author updateAuthor = authorRepo.findById(id).orElseThrow(NotFoundAuthorEx::new);
         updateAuthor.setName(author.getName());
