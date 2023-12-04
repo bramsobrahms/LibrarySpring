@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/client")
 public class ClientC {
@@ -27,6 +29,12 @@ public class ClientC {
     public ResponseEntity<Client> findClientById(@PathVariable Long id){
         Client findByIdClient = clientServ.clientById(id);
         return ResponseEntity.ok(findByIdClient);
+    }
+
+    @GetMapping(value = "")
+    public ResponseEntity<List<Client>> findAllClients(){
+        List<Client> listClients = clientServ.allClients();
+        return ResponseEntity.ok(listClients);
     }
 
 }

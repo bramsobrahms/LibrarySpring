@@ -28,7 +28,7 @@ public class ClientIS implements ClientS {
 
     @Override
     public List<Client> allClients() {
-        return null;
+        return clientRepo.findAll();
     }
 
     @Override
