@@ -19,4 +19,10 @@ public class Adresse {
     private String zipcode;
     private String city;
 
+    public Adresse(String street, String number, String zipcode, String city) {
+        this.street = street;
+        this.number = number;
+        this.zipcode = zipcode;
+        this.city = city;
+    }
 }

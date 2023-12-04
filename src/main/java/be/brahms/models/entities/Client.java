@@ -26,4 +26,10 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private Set<ClientBook> renteBooks = new HashSet<>();
 
+    public Client(String niss, String name, String firstname, Adresse adresse) {
+        this.niss = niss;
+        this.name = name;
+        this.firstname = firstname;
+        this.adresse = adresse;
+    }
 }
