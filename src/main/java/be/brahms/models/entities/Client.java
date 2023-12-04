@@ -14,6 +14,7 @@ public class Client {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String niss;
     private String name;
     private String firstname;
