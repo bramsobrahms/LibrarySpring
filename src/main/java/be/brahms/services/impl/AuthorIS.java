@@ -47,6 +47,6 @@ public class AuthorIS implements AuthorS {
 
     @Override
     public void deleteAuthor(Long id) {
-
+        authorRepo.deleteById(id);
     }
 }

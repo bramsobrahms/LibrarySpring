@@ -51,4 +51,10 @@ public class AuthorC {
         return ResponseEntity.ok(searchByAuthor);
     }
 
+    @DeleteMapping(value = "/{id}/delete")
+    public ResponseEntity<String> deleteAuthor(@PathVariable Long id){
+        authorServ.deleteAuthor(id);
+        return ResponseEntity.status(200).body("Deletion success");
+    }
+
 }
