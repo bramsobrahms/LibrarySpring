@@ -1,5 +1,6 @@
 package be.brahms.services;
 
+import be.brahms.models.entities.Adresse;
 import be.brahms.models.entities.Client;
 
 import java.util.List;

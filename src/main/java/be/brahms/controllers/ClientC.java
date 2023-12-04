@@ -1,5 +1,6 @@
 package be.brahms.controllers;
 
+import be.brahms.models.dtos.ClientDTO;
 import be.brahms.models.entities.Client;
 import be.brahms.models.forms.ClientF;
 import be.brahms.services.ClientS;
@@ -36,5 +37,12 @@ public class ClientC {
         List<Client> listClients = clientServ.allClients();
         return ResponseEntity.ok(listClients);
     }
+
+    @PutMapping(value = "/{id}/update")
+    public ResponseEntity<ClientDTO> updateClient(@PathVariable Long id, @RequestBody ClientF form){
+        Client updateClient = clientServ.updateClient(id, form.toEntity());
+        return ResponseEntity.ok(ClientDTO.fromEntity(updateClient));
+    }
+
 
 }
