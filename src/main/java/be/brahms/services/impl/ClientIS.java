@@ -23,7 +23,7 @@ public class ClientIS implements ClientS {
 
     @Override
     public Client clientById(Long id) {
-        return null;
+        return clientRepo.findById(id).orElseThrow();
     }
 
     @Override
