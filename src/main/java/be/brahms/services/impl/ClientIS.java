@@ -5,6 +5,7 @@ import be.brahms.models.entities.Client;
 import be.brahms.repositories.AdresseR;
 import be.brahms.repositories.ClientR;
 import be.brahms.services.ClientS;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,10 +36,8 @@ public class ClientIS implements ClientS {
         return clientRepo.findAll();
     }
 
-    @Override
-    public Client updateClient(Long id, Client client) {
-        Client updateClient = clientRepo.findById(id).orElseThrow();
-        Adresse updateAdresse = adresseRepo.findById(updateClient.getAdresse().getId()).orElseThrow();
+    private Client getClient(Client client, Client updateClient) {
+        Adresse updateAdresse = adresseRepo.findById(updateClient.getAdresse().getId()).orElseThrow(()-> new EntityNotFoundException("Adress doesnt exist"));
 
         updateClient.setNiss(client.getNiss());
         updateClient.setName(client.getName());
@@ -55,8 +54,21 @@ public class ClientIS implements ClientS {
     }
 
     @Override
-    public void deleteclient() {
+    public Client updateClient(Long id, Client client) {
+        Client updateClient = clientRepo.findById(id).orElseThrow();
+        return getClient(client, updateClient);
+    }
 
+    @Override
+    public Client updateClientNiss(String niss, Client client) {
+        //TODO repository clientNiss
+        //Client updateClient = clientRepo;
+        return null;
+    }
+
+    @Override
+    public void deleteclient(Long id) {
+        clientRepo.deleteById(id);
     }
 
     @Override

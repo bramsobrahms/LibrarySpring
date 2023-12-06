@@ -11,7 +11,8 @@ public interface ClientS {
     Client clientById(Long id);
     List<Client> allClients();
     Client updateClient(Long id, Client client);
-    void deleteclient();
+    Client updateClientNiss(String niss, Client client);
+    void deleteclient(Long id);
     Client searchByNiss(String niss);
     List<Client> searchByname(String name);
 }

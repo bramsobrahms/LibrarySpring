@@ -38,11 +38,16 @@ public class ClientC {
         return ResponseEntity.ok(listClients);
     }
 
-    @PutMapping(value = "/{id}/update")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<ClientDTO> updateClient(@PathVariable Long id, @RequestBody ClientF form){
         Client updateClient = clientServ.updateClient(id, form.toEntity());
         return ResponseEntity.ok(ClientDTO.fromEntity(updateClient));
     }
 
+    @PutMapping(value = "/{niss}/update")
+    public ResponseEntity<ClientDTO> updateClientNiss(@PathVariable String niss, @RequestBody ClientF form){
+        Client updateClientNiss = clientServ.updateClientNiss(niss, form.toEntity());
+        return ResponseEntity.ok(ClientDTO.fromEntity(updateClientNiss));
+    }
 
 }
